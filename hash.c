@@ -80,7 +80,7 @@ nodo * search_list(head * h, int key){
 
 //função de hash
 int hash_func(int key, int hash_size){
-    return key % m;
+    return key % hash_size;
 }
 
 
@@ -98,9 +98,27 @@ void hash_search(hash * h, int key){
 
 }
 
+
+void print_hash(hash * h){
+	int i;
+	nodo * aux;
+
+
+	for ( i = 0; i < h->size; i++){
+		aux = h->table[i]->first;
+		printf("%d ->", i);
+		while(aux){
+			printf("%d ", aux->key);
+			aux=aux->next;
+		}
+		printf("\n");
+	}
+
+}
+
 int main ( void ){
 
-    hash * h = hash_start(47);   //inicia uma tabela de hash com tamanho 47
+    hash * h = hash_start(8);   //inicia uma tabela de hash com tamanho 47
 
     insert_hash(h,10);
     insert_hash(h,150);
@@ -116,6 +134,8 @@ int main ( void ){
     hash_search(h,1510);
     hash_search(h,180);
     hash_search(h,150);
+
+	print_hash(h);
 
 
     return 0;
