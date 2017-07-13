@@ -135,8 +135,6 @@ int main ( void ){
     hash_search(h,180);
     hash_search(h,150);
 
-	print_hash(h);
-
 
     return 0;
 }
