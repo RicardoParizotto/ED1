@@ -80,7 +80,10 @@ nodo * search_list(head * h, int key){
 
 //função de hash
 int hash_func(int key, int hash_size){
+	//h(k) = k(k+3) mod m knuth hash function 
+	//https://www.cs.hmc.edu/~geoff/classes/hmc.cs070.200101/homework10/hashfuncs.html
     return key % hash_size;
+	//return (key*(key + 3)) % hash_size;
 }
 
 
@@ -134,6 +137,8 @@ int main ( void ){
     hash_search(h,1510);
     hash_search(h,180);
     hash_search(h,150);
+
+	print_hash(h);
 
 
     return 0;
